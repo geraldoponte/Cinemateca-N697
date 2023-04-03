@@ -47,11 +47,25 @@
       </ul>
       <div class="tab-content">
         <div class="tab-pane fade show active" id="filmes">
+          <br><br>
           <div class="formularios">
+
             <form autocomplete="off">
               <p>Orientações:</p>
-              1)
-
+              1) Esta página destina-se a mostrar a integração com o serviço de back-end <a
+                href="https://www.back4app.com/">Back4app</a></i>;
+              2) São feitas requisições CRUD ao back-end e a resposta no formato Json é exibida no
+              final da página;
+              3) Para iniciar, sugerimos clicar em "Listar Filmes" para visualizar os filmes cadastrados anteriormente;
+              4) Para cadastrar um novo filme, informe os dados e clique em "Salvar Filme";
+              5) Para excluir ou editar um filme, é necessário copiar o VALOR do campo "objectId" correspondente ao
+              filme desejado da lista disponível na área "Resultado das Requisições", colar o valor em "Código do Filme"
+              e clicar em
+              "Buscar Filme"; 6) Como a proposta da atividade não é o funcionamento visual da página HTML, não houve
+              preocupação com a responsividade
+              nem com habilitar os botões de acordo com o contexto (preenchimento dos campos de entrada); 7) Optamos por
+              apresentar as respostas Json a
+              fim de demonstrar o retorno das requisições ao back-end.
             </form>
           </div>
 
@@ -82,7 +96,7 @@
                 disabled=true; style="text-align:left" ;>
                   </textarea>
               <br>
-              <button id="btnExcluirFilme" class="enviar">Excluir Filme</button>
+              <button id="btnExcluirFilme" class="enviar">Deletar Filme</button>
               <br><br>
               <label for="nomeBrUpd">Novo titulo do Filme no Brasil*</label>
               <input id="nomeBrUpd" type="text" class="input-padrao" />
@@ -150,12 +164,14 @@
   <footer>
     <div class="rodape">
       <grid-container>
-        <grid-item> Equipe: </style>
+        <grid-item>
+          <u><b>Equipe:</b></u>
+          </style>
         </grid-item>
-        <grid-item> - Bruno Andrade Aguiar Marques</grid-item>
-        <grid-item> - Geraldo Giovani Pinho da Ponte</grid-item>
-        <grid-item> - Lucas Aguiar Marques</grid-item>
-        <grid-item> - Robson Silva Cardoso</grid-item>
+        <grid-item> <a href="https://github.com/BrunoAAM">Bruno Andrade Aguiar Marques</grid-item>
+        <grid-item> <a href="https://github.com/geraldoponte">Geraldo Giovani Pinho da Ponte</grid-item>
+        <grid-item> <a href="https://github.com/lucasaguiar-dev">Lucas Aguiar Marques</grid-item>
+        <grid-item> <a href="https://github.com/RobCardo">Robson Silva Cardoso</grid-item>
       </grid-container>
       <p></p>
       <p><i>Background image by <a
@@ -172,6 +188,9 @@
   document.getElementById("btnSalvarFilme").addEventListener("click", async function () {
     document.getElementById('respostas').value = "";
     cadastrarFilme();
+    document.getElementById('nomeBr').value = "";
+    document.getElementById('nomeOriginal').value = "";
+    document.getElementById('ano').value = "";
   });
 
   document.getElementById("btnBuscarFilme").addEventListener("click", async function () {
@@ -182,6 +201,10 @@
   document.getElementById("btnExcluirFilme").addEventListener("click", async function () {
     document.getElementById('respostas').value = "";
     deletarFilme();
+    document.getElementById('codigoFilme').value = "";
+    document.getElementById('nomeBrUpd').value = "";
+    document.getElementById('nomeOriginalUpd').value = "";
+    document.getElementById('anoUpd').value = "";
   });
 
   document.getElementById("btnAtualizarFilme").addEventListener("click", async function () {
